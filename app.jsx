@@ -49,9 +49,9 @@ function App() {
     } , 2000)
   } , [])
 
-  const cryptoReturns = useMemo(() => {
-    exchange1Data.returns + exchange2Data.returns ; 
-  },[])
+  const cryptoReturns = useMemo(() => { //so it runs the expensive mathemetical operation whenever the setExchange 1 and 2 data changes otherwise it skips this mathemetical expression
+    return exchange1Data.returns + exchange2Data.returns ; 
+  },[setExchangeData1,setExchangeData2])
 
   //const cryptoReturns = exchange1Data.returns + exchange2Data.returns ; //this line runs everytime even when the exchange 1 and 2 data not changes so we use use memo to fix this problem
   const incomeTax = (cryptoReturns + bankData.income) * 0.3;
